@@ -1,0 +1,10 @@
+C:\Users\alvar\Desktop\C#\App Launcher\App Launcher\bin\Debug\App Launcher.exe.config
+C:\Users\alvar\Desktop\C#\App Launcher\App Launcher\bin\Debug\App Launcher.exe
+C:\Users\alvar\Desktop\C#\App Launcher\App Launcher\bin\Debug\App Launcher.pdb
+C:\Users\alvar\Desktop\C#\App Launcher\App Launcher\obj\Debug\App Launcher.csprojAssemblyReference.cache
+C:\Users\alvar\Desktop\C#\App Launcher\App Launcher\obj\Debug\App_Launcher.Properties.Resources.resources
+C:\Users\alvar\Desktop\C#\App Launcher\App Launcher\obj\Debug\App Launcher.csproj.GenerateResource.cache
+C:\Users\alvar\Desktop\C#\App Launcher\App Launcher\obj\Debug\App Launcher.csproj.CoreCompileInputs.cache
+C:\Users\alvar\Desktop\C#\App Launcher\App Launcher\obj\Debug\App Launcher.exe
+C:\Users\alvar\Desktop\C#\App Launcher\App Launcher\obj\Debug\App Launcher.pdb
+C:\Users\alvar\Desktop\C#\App Launcher\App Launcher\obj\Debug\App_Launcher.AppLauncher.resources
