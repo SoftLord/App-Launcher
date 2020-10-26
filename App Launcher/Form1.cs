@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -54,6 +55,7 @@ namespace App_Launcher
 
         private void RaspiButton_Click(object sender, EventArgs e)
         {
+            //ReadOptions("RaspiConnection");
             Process.Start("https://github.com/SoftLord/RaspiConnection");
         }
 
@@ -61,5 +63,56 @@ namespace App_Launcher
         {
             Process.Start("https://github.com/SoftLord/Conchi");
         }
+
+        void ReadOptions(String name) //name has to be "RaspiConnection" o "Conchi"
+        {
+            try
+            {
+                StreamReader TextOptions = new StreamReader("Options.txt");
+                if (name == "RaspiConnection")
+                {
+                    String line = TextOptions.ReadLine();
+                    TextOptions.Close();
+
+                    if (line.Contains("C:"))
+                    {
+                        try
+                        {
+                            Process.Start(line);
+                        }
+                        catch
+                        {
+                            Process.Start("https://github.com/SoftLord/RaspiConnection");
+                        }
+                    }
+                    else
+                    {
+                        OpenFileDialog dialogo = new OpenFileDialog();
+                        dialogo.ShowDialog();
+
+                        StreamReader openToRead = new StreamReader("Options.txt");
+                        String lines = openToRead.ReadToEnd();
+                        openToRead.Close();
+
+                        //return dialogo.FileName;
+                    }
+                }
+                else if (name == "Conchi")
+                {
+                    String line = TextOptions.ReadLine();
+                    line = TextOptions.ReadLine();
+                    TextOptions.Close();
+                }
+                else
+                {
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error. Options.txt is missing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
