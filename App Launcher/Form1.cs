@@ -55,12 +55,12 @@ namespace App_Launcher
 
         private void RaspiButton_Click(object sender, EventArgs e)
         {
-            //ReadOptions("RaspiConnection");
-            Process.Start("https://github.com/SoftLord/RaspiConnection");
+            ReadOptions("RaspiConnection");
         }
 
         private void ConchiButton_Click(object sender, EventArgs e)
         {
+            //ReadOptions("Conchi");
             Process.Start("https://github.com/SoftLord/Conchi");
         }
 
@@ -78,6 +78,7 @@ namespace App_Launcher
                     {
                         try
                         {
+                            line = line.Substring(line.IndexOf("<") + 1, line.IndexOf(">") - line.IndexOf("<") - 1); //we have to quit the position of the first to the second one
                             Process.Start(line);
                         }
                         catch
@@ -91,21 +92,52 @@ namespace App_Launcher
                         dialogo.ShowDialog();
 
                         StreamReader openToRead = new StreamReader("Options.txt");
-                        String lines = openToRead.ReadToEnd();
+                        String lineToChange = openToRead.ReadLine();
                         openToRead.Close();
 
-                        //return dialogo.FileName;
+                        lineToChange = lineToChange.Substring(0, line.IndexOf("<") + 1) + dialogo.FileName + "> " + line.Substring(line.IndexOf(">") - line.IndexOf("<") - 1);
+
+                        StreamWriter openToWrite = new StreamWriter("Options.txt");
+                        openToWrite.Write(lineToChange);
+                        openToWrite.Close();
                     }
                 }
                 else if (name == "Conchi")
                 {
                     String line = TextOptions.ReadLine();
-                    line = TextOptions.ReadLine();
                     TextOptions.Close();
+
+                    if (line.Contains("C:"))
+                    {
+                        try
+                        {
+                            line = line.Substring(line.IndexOf("<") + 1, line.IndexOf(">") - line.IndexOf("<") - 1); //we have to quit the position of the first to the second one
+                            Process.Start(line);
+                        }
+                        catch
+                        {
+                            Process.Start("https://github.com/SoftLord/Conchi");
+                        }
+                    }
+                    else
+                    {
+                        OpenFileDialog dialogo = new OpenFileDialog();
+                        dialogo.ShowDialog();
+
+                        StreamReader openToRead = new StreamReader("Options.txt");
+                        String lineToChange = openToRead.ReadLine();
+                        openToRead.Close();
+
+                        lineToChange = lineToChange.Substring(0, line.IndexOf("<") + 1) + dialogo.FileName + "> " + line.Substring(line.IndexOf(">") - line.IndexOf("<") - 1);
+
+                        StreamWriter openToWrite = new StreamWriter("Options.txt");
+                        openToWrite.Write(lineToChange);
+                        openToWrite.Close();
+                    }
                 }
                 else
                 {
-
+                    //if name is not aupported
                 }
             }
             catch

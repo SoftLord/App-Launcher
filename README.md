@@ -12,4 +12,4 @@ Currently App Launcher suports:
 
 + Conchi
 
-###More apps coming soon!
+### More apps coming soon!

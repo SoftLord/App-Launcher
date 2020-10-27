@@ -1,2 +1,1 @@
-RaspiPath = jkjidjeopqwijiopjj
-ConchiPath = 
+RaspiPath = <C:\Users\alvar\Desktop\RaspiConnection\RaspiConnection.exe> RaspiPath = <> ConchiPath = <>
