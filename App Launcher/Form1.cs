@@ -60,17 +60,16 @@ namespace App_Launcher
 
         private void ConchiButton_Click(object sender, EventArgs e)
         {
-            //ReadOptions("Conchi");
-            Process.Start("https://github.com/SoftLord/Conchi");
+            ReadOptions("Conchi");
         }
 
         void ReadOptions(String name) //name has to be "RaspiConnection" o "Conchi"
         {
             try
             {
-                StreamReader TextOptions = new StreamReader("Options.txt");
                 if (name == "RaspiConnection")
                 {
+                    StreamReader TextOptions = new StreamReader(name + ".txt");
                     String line = TextOptions.ReadLine();
                     TextOptions.Close();
 
@@ -91,19 +90,20 @@ namespace App_Launcher
                         OpenFileDialog dialogo = new OpenFileDialog();
                         dialogo.ShowDialog();
 
-                        StreamReader openToRead = new StreamReader("Options.txt");
+                        StreamReader openToRead = new StreamReader(name + ".txt");
                         String lineToChange = openToRead.ReadLine();
                         openToRead.Close();
 
                         lineToChange = lineToChange.Substring(0, line.IndexOf("<") + 1) + dialogo.FileName + "> " + line.Substring(line.IndexOf(">") - line.IndexOf("<") - 1);
 
-                        StreamWriter openToWrite = new StreamWriter("Options.txt");
+                        StreamWriter openToWrite = new StreamWriter(name + ".txt");
                         openToWrite.Write(lineToChange);
                         openToWrite.Close();
                     }
                 }
                 else if (name == "Conchi")
                 {
+                    StreamReader TextOptions = new StreamReader(name + ".txt");
                     String line = TextOptions.ReadLine();
                     TextOptions.Close();
 
@@ -124,20 +124,20 @@ namespace App_Launcher
                         OpenFileDialog dialogo = new OpenFileDialog();
                         dialogo.ShowDialog();
 
-                        StreamReader openToRead = new StreamReader("Options.txt");
+                        StreamReader openToRead = new StreamReader(name + ".txt");
                         String lineToChange = openToRead.ReadLine();
                         openToRead.Close();
 
                         lineToChange = lineToChange.Substring(0, line.IndexOf("<") + 1) + dialogo.FileName + "> " + line.Substring(line.IndexOf(">") - line.IndexOf("<") - 1);
 
-                        StreamWriter openToWrite = new StreamWriter("Options.txt");
+                        StreamWriter openToWrite = new StreamWriter(name + ".txt");
                         openToWrite.Write(lineToChange);
                         openToWrite.Close();
                     }
                 }
                 else
                 {
-                    //if name is not aupported
+                    //if name is not supported
                 }
             }
             catch

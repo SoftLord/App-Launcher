@@ -13,3 +13,7 @@ Currently App Launcher suports:
 + Conchi
 
 ### More apps coming soon!
+
+
+
+*****As RaspiConnection and Conchi are portable versions, you will have to choose the path when you click by first time on the icons.
